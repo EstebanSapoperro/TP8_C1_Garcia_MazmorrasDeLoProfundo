@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Solids
   - 
   - 
   - 
@@ -41,3 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: New Layer 1
+    uniqueID: 558309745
+    locked: 0
+  - name: Decorations
+    uniqueID: 3808822563
+    locked: 0
+  - name: Entities
+    uniqueID: 2455698849
+    locked: 0
+  - name: Solids
+    uniqueID: 1181340025
+    locked: 0
+  - name: Foreground
+    uniqueID: 2962190771
+    locked: 0
+  m_RenderingLayers:
+  - Default

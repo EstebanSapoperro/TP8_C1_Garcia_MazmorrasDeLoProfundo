@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
             isPressingUp = true;
             isTappetUp = true;
             bufferTimer = bufferTime;
-            animato.Play("Jump");
 
         }
         else
@@ -66,14 +65,18 @@ public class PlayerMovement : MonoBehaviour
             body.transform.right = new Vector3(0, 0, 0);
             if (walkAnimationPlayed == false && isPressingUp == false)
             {
-                animato.Play("PlayerWalk");
+                animato.SetBool("IsWalk", true);
+                animato.Play("Walk");
                 walkAnimationPlayed = true;
             }
             idleAnimationPlayed = false;
         }
         else
         {
-            animato.SetBool("IsWalk", false);
+            if (goingLeft == false) 
+            {
+                animato.SetBool("IsWalk", false);
+            }
             goingRight = false;
             walkAnimationPlayed = false;
         }
@@ -84,14 +87,18 @@ public class PlayerMovement : MonoBehaviour
             body.transform.right = new Vector3(-180, 0, 0);
             if (walkAnimationPlayed == false && isPressingUp == false)
             {
-                animato.Play("PlayerWalk");
+                animato.SetBool("IsWalk", true);
+                animato.Play("Walk");
                 walkAnimationPlayed = true;
             }
             idleAnimationPlayed = false;
         }
         else
         {
-            animato.SetBool("IsWalk", false);
+            if (goingRight == false)
+            {
+                animato.SetBool("IsWalk", false);
+            }
             walkAnimationPlayed = false;
             goingLeft = false;
         }
@@ -125,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (bufferTimer > 0 && coyoteTimer > 0)
         {
-            jumpSFX.Play();
+            //jumpSFX.Play();
             rb.linearVelocityY = jumpForce;
             bufferTimer = 0;
             coyoteTimer = 0;

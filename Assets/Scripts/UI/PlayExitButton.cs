@@ -33,7 +33,7 @@ public class PlayExitButton : MonoBehaviour
         if (playButton)
         {
             Time.timeScale = 1.0f;
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Gameplay");
         }
 
         if (exitButton)
