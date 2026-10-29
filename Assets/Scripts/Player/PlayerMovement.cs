@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private bool goingLeft = false;
     private bool walkAnimationPlayed = false;
     private bool idleAnimationPlayed = true;
+    private bool isAttacking = false;
 
     private LayerMask floorLayer;
     private float coyoteTime;
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             goingRight = true;
             body.transform.right = new Vector3(0, 0, 0);
-            if (walkAnimationPlayed == false && isPressingUp == false)
+            if (walkAnimationPlayed == false && isPressingUp == false && isAttacking == false)
             {
                 animato.SetBool("IsWalk", true);
                 animato.Play("Walk");
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (goingLeft == false) 
+            if (goingLeft == false && isAttacking == false) 
             {
                 animato.SetBool("IsWalk", false);
             }
@@ -85,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         {
             goingLeft = true;
             body.transform.right = new Vector3(-180, 0, 0);
-            if (walkAnimationPlayed == false && isPressingUp == false)
+            if (walkAnimationPlayed == false && isPressingUp == false && isAttacking == false)
             {
                 animato.SetBool("IsWalk", true);
                 animato.Play("Walk");
@@ -95,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (goingRight == false)
+            if (goingRight == false && isAttacking == false)
             {
                 animato.SetBool("IsWalk", false);
             }
@@ -145,5 +146,16 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void ChangeIsAttacking() 
+    {
+        if (isAttacking)
+        {
+            isAttacking = false;
+        }
+        else 
+        {
+            isAttacking = true;
+        }
+    }
 
 }

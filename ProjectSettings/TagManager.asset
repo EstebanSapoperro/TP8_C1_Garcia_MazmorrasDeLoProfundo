@@ -44,6 +44,9 @@ TagManager:
   - name: New Layer 1
     uniqueID: 558309745
     locked: 0
+  - name: backGround
+    uniqueID: 1387838733
+    locked: 0
   - name: Decorations
     uniqueID: 3808822563
     locked: 0
