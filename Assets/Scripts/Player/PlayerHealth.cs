@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] PlayerSo data;
     public static event Action OnUpdateHealth;
     public static event Action OnDeathHealth;
+
     private bool isDeath = false;
     private float invulneravilityTime = 2;
     private float invulneravilityCounter = 0;
@@ -18,10 +19,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) 
+        if (Input.GetKeyDown(KeyCode.L))
         {
             OnDeathHealth?.Invoke();
-            Debug.Log("Esto es TEMPORAL, el jugador murio por causas de admin");
+            Debug.LogWarning("Esto es TEMPORAL, el jugador murio por causas de admin");
         }
     }
+
 }

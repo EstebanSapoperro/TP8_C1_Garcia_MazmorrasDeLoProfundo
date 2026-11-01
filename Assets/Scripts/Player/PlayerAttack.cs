@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-
 public class PlayerAttack : MonoBehaviour
 {
+    
     private bool canAttack = true;
     [SerializeField] PlayerMovement player;
     [SerializeField] GameObject slashHitBox;
@@ -17,12 +17,6 @@ public class PlayerAttack : MonoBehaviour
         {
             StartCoroutine(Attack());
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            StartCoroutine(Attack());
-        }
-
     }
 
     IEnumerator Attack() 
@@ -32,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
         animato.Play("Attack");
         yield return new WaitForSeconds(0.50f);
         slashHitBox.SetActive(true);
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.25f);
         slashHitBox.SetActive(false);
         canAttack = true;
         player.ChangeIsAttacking();

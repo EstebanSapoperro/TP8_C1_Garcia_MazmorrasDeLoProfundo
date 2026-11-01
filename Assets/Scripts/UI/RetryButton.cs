@@ -20,6 +20,6 @@ public class RetryButton : MonoBehaviour
     {
         //DataGameManager.isFinished = false;
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Gameplay");
     }
 }
