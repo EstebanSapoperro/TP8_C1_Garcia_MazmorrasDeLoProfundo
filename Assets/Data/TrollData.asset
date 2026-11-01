@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285782aa375579f47a1b30ddb6f5da14, type: 3}
   m_Name: TrollData
   m_EditorClassIdentifier: Assembly-CSharp::TrollSo
-  velocityX: 10
+  velocityX: 1
