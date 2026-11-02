@@ -16,7 +16,7 @@ public class TrollMovementRayCast : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collitionChangeDirection)
+        if (collitionChangeDirection == true)
         {
             enemy.ChangeDirection();
         }
