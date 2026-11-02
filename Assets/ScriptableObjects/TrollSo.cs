@@ -4,7 +4,7 @@ using UnityEngine;
 public class TrollSo : ScriptableObject
 {
     [SerializeField] public float velocityX = 10;
-
+    [SerializeField] public float enemyHealth = 70;
 
 
 }

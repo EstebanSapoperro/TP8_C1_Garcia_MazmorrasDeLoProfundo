@@ -11,6 +11,7 @@ public class PlayerSo : ScriptableObject
     [SerializeField] public float originalGravityScale = 2.5f;
     [SerializeField] public float jumpGravityScale = 1;
     [SerializeField] public float rayCastLong = 1.2f;
+    [SerializeField] public float slashDamage = 20;
 
     [SerializeField] public float contactDamage = 20;
     [SerializeField] public float invulneravilityTime = 1.7f;
