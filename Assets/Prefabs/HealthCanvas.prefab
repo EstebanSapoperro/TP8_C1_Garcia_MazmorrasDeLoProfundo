@@ -52,10 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97382d11ba28b7f498b1258c4f8d4024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
-  hitEffect: {fileID: 0}
-  hitClipEffect: {fileID: 0}
   data: {fileID: 0}
-  animatio: {fileID: 0}
   healthBar: {fileID: 3592467575541628365}
 --- !u!223 &7620603724455218768
 Canvas:
@@ -102,7 +99,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &528215547160582409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.56289303, b: 0.56289303, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.25949192, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

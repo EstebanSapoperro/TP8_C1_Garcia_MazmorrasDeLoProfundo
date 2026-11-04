@@ -17,19 +17,16 @@ public class TrollMovement : MonoBehaviour
 
     public void ChangeDirection()
     {
-        Debug.Log("Se cambio de direccion");
         Vector3 rotacion = body.transform.eulerAngles;
         if (Mathf.Approximately(rotacion.y, 180f))
         {
             rb.linearVelocityX = velocityX;
             body.transform.rotation = Quaternion.Euler(0, 0, 0);
-            Debug.Log("Se cambio de direccion hacia la der");
         }
         else
         {
             rb.linearVelocityX = -velocityX;
             body.transform.rotation = Quaternion.Euler(0, 180, 0);
-            Debug.Log("Se cambio de direccion hacia la izq");
 
         }
     }

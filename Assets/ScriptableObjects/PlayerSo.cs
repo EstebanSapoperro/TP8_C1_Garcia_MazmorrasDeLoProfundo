@@ -15,6 +15,7 @@ public class PlayerSo : ScriptableObject
 
     [SerializeField] public float contactDamage = 20;
     [SerializeField] public float invulneravilityTime = 1.7f;
+    [SerializeField] public float Life = 100;
 
 
 }
