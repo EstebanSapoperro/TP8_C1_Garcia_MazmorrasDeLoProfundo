@@ -7,6 +7,7 @@ public class EnterBackButton : MonoBehaviour
     [SerializeField] private CanvasGroup enterPanel;
     [SerializeField] private CanvasGroup exitPanel;
     [SerializeField] private GameObject timePanel;
+    [SerializeField] private AudioSource buttonSFX;
 
     [SerializeField] private Button exitbutton;
     private void Awake()
@@ -21,7 +22,7 @@ public class EnterBackButton : MonoBehaviour
 
     private void onClick()
     {
-
+        buttonSFX.Play();
         if (IsResumeButton == true)
         {
             if (Time.timeScale == 0)
@@ -40,10 +41,7 @@ public class EnterBackButton : MonoBehaviour
             }
 
         }
-        Debug.Log("Botón presionado: " + gameObject.name);
 
-        Debug.Log("EnterPanel: " + (enterPanel == null ? "NULL" : enterPanel.name));
-        Debug.Log("ExitPanel: " + (exitPanel == null ? "NULL" : exitPanel.name));
         if (enterPanel != null)
         {
             enterPanel.alpha = 1;
