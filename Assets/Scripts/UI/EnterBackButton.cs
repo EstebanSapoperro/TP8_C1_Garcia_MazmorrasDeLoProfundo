@@ -27,22 +27,19 @@ public class EnterBackButton : MonoBehaviour
         {
             if (Time.timeScale == 0)
             {
+                Debug.Log("el tiempo es 1");
                 Time.timeScale = 1;
 
             }
             else if (Time.timeScale == 1)
             {
+                Debug.Log("el tiempo es 0");
                 Time.timeScale = 0;
-            }
-
-            if (timePanel != null)
-            {
-                //timePanel.SetActive(true);
             }
 
         }
 
-        if (enterPanel != null)
+        if (enterPanel != null && !IsResumeButton)
         {
             enterPanel.alpha = 1;
             enterPanel.interactable = true;

@@ -6,7 +6,7 @@ public class TrollAttack : MonoBehaviour
     [SerializeField] private TrollMovement movement;
     [SerializeField] private Animator animato;
     [SerializeField] private GameObject attackHitBox;
-
+    [SerializeField] private AudioSource attackSFX;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && atacking == false)
@@ -20,9 +20,9 @@ public class TrollAttack : MonoBehaviour
         movement.Stop();
         animato.Play("Attack");
         atacking = true;
-        Debug.Log("Se prepara para atacar");
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("ataca");
+        yield return new WaitForSeconds(0.3f);
+        attackSFX.Play();
+        yield return new WaitForSeconds(0.2f);
         attackHitBox.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         attackHitBox.SetActive(false);

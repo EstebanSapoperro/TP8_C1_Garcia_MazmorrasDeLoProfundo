@@ -7,9 +7,10 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] PlayerMovement player;
     [SerializeField] GameObject slashHitBox;
     [SerializeField] private Animator animato;
+    [SerializeField] private AudioSource attackSFX;
     void Start()
     {
-        
+        canAttack = true;
     }
     private void Update()
     {
@@ -24,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
         canAttack = false;
         player.ChangeIsAttacking();
         animato.Play("Attack");
+        attackSFX.Play();
         yield return new WaitForSeconds(0.50f);
         slashHitBox.SetActive(true);
         yield return new WaitForSeconds(0.25f);

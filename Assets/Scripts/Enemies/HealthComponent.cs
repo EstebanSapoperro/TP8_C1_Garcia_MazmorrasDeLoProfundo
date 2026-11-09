@@ -8,6 +8,7 @@ public class HealthComponent : MonoBehaviour
     //[SerializeField] private AudioSource hitEffect;
     //[SerializeField] private AudioClip hitClipEffect;
     [SerializeField] private SpriteRenderer originalSprite;
+    [SerializeField] private AudioSource diyingSFX;
     private Color originalColor;
     private Color flashColor = Color.red;
     private float flashTime = 0.3f;
@@ -51,7 +52,7 @@ public class HealthComponent : MonoBehaviour
 
     IEnumerator Die() 
     {
-        Debug.Log("Se murio el enemigo");
+        diyingSFX.Play();
         bodyMovement.Stop();
         animatio.Play("Dead");
         yield return new WaitForSeconds(0.6f);

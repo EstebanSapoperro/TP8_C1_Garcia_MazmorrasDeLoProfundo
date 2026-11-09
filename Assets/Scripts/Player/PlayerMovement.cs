@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (bufferTimer > 0 && coyoteTimer > 0)
         {
-            //jumpSFX.Play();
+            jumpSFX.Play();
             rb.linearVelocityY = jumpForce;
             bufferTimer = 0;
             coyoteTimer = 0;
