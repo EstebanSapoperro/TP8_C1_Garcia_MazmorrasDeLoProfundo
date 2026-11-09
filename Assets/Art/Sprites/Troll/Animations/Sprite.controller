@@ -79,7 +79,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dead
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -117,7 +117,7 @@ AnimatorStateMachine:
     m_Position: {x: 340, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 520983132347469310}
-    m_Position: {x: 290, y: 240, z: 0}
+    m_Position: {x: 170, y: 220, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

@@ -7,4 +7,5 @@ public class TrollSo : ScriptableObject
     [SerializeField] public float enemyHealth = 70;
 
     [SerializeField] public float attackDamage = 15;
+    [SerializeField] public float flashTime = 0.3f;
 }
