@@ -21,21 +21,30 @@ public class PlayerHealth : MonoBehaviour
         actualLife = maxLife;
         invulneravilityTime = data.invulneravilityTime;
         contactDamage = data.contactDamage;
-        Debug.Log("la barra  a deberia de estar en: " + PlayerGameManager.maxPlayerHealth);
-        Debug.Log("la barra  b deberia de estar en: " + PlayerGameManager.playerHealth);
     }
 
     public void ReciveDamage(float damage) 
     {
-        OnUpdateHealth?.Invoke();
-        Debug.Log("ESTO ES TEMPORAL, se recivio de daño: " + damage);
         actualLife -= damage;
         PlayerGameManager.playerHealth -= damage;
-        Debug.Log("ESTO ES TEMPORAL, la vida actual es: " + actualLife);
+        OnUpdateHealth?.Invoke();
         if (actualLife <= 0) 
         {
             Die();
         }
+    }
+
+    public void RegenHealth() 
+    {
+        actualLife += 30;
+        PlayerGameManager.playerHealth += 30;
+        OnUpdateHealth?.Invoke();
+    }
+    public void RegenMaxHealth()
+    {
+        actualLife = maxLife;
+        PlayerGameManager.playerHealth = PlayerGameManager.maxPlayerHealth;
+        OnUpdateHealth?.Invoke();
     }
 
     private void Die() 

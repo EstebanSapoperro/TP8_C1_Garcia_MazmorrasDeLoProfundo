@@ -27,11 +27,8 @@ public class HealthComponent : MonoBehaviour
     }
     public void DoDamage(float damage) 
     {
-        //hitEffect.pitch = Random.Range(0.9f, 1.1f);
-        //hitEffect.PlayOneShot(hitClipEffect);
         health -= damage;
         healthBar.fillAmount = health / maxHealth;
-        Debug.Log("recibio daño");
         StartCoroutine(FlashEffect(originalColor, flashColor,originalSprite,flashTime));
 
         if (health <= 0)

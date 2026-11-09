@@ -23,7 +23,7 @@ public class HealthBarUI : MonoBehaviour
     private void UpdateHealth()
     {
         fillHealthBarImage.fillAmount = PlayerGameManager.playerHealth / PlayerGameManager.maxPlayerHealth;
-        Debug.Log("la barra deberia de estar en: " + (int)PlayerGameManager.playerHealth / (int)PlayerGameManager.maxPlayerHealth);
+      
     }
 
 }
