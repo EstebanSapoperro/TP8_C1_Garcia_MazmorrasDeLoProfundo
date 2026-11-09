@@ -8,13 +8,13 @@ public class GameOverPanel : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         PlayerHealth.OnDeathHealth += DeathScreen;
-        //WinCondition.OnWining += WiningScreen;
+        DoorBehabour.OnWining += WiningScreen;
     }
 
     private void OnDestroy()
     {
         PlayerHealth.OnDeathHealth -= DeathScreen;
-        //WinCondition.OnWining -= WiningScreen;
+        DoorBehabour.OnWining -= WiningScreen;
     }
 
     private void DeathScreen()

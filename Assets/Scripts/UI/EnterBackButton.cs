@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class EnterBackButton : MonoBehaviour
 {
     [SerializeField] private bool IsResumeButton = false;
-    [SerializeField] private GameObject enterPanel;
-    [SerializeField] private GameObject exitPanel;
+    [SerializeField] private CanvasGroup enterPanel;
+    [SerializeField] private CanvasGroup exitPanel;
     [SerializeField] private GameObject timePanel;
 
     [SerializeField] private Button exitbutton;
@@ -36,15 +36,27 @@ public class EnterBackButton : MonoBehaviour
 
             if (timePanel != null)
             {
-                timePanel.SetActive(true);
+                //timePanel.SetActive(true);
             }
 
         }
+        Debug.Log("Botón presionado: " + gameObject.name);
+
+        Debug.Log("EnterPanel: " + (enterPanel == null ? "NULL" : enterPanel.name));
+        Debug.Log("ExitPanel: " + (exitPanel == null ? "NULL" : exitPanel.name));
         if (enterPanel != null)
         {
-            enterPanel.SetActive(true);
+            enterPanel.alpha = 1;
+            enterPanel.interactable = true;
+            enterPanel.blocksRaycasts = true;
         }
-        exitPanel.SetActive(false);
+        if (exitPanel != null)
+        {
+            exitPanel.alpha = 0;
+            exitPanel.interactable = false;
+            exitPanel.blocksRaycasts = false;
+        }
+        
 
     }
 }

@@ -21,15 +21,6 @@ public class PlayerHealth : MonoBehaviour
         contactDamage = data.contactDamage;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Die();
-            Debug.LogWarning("Esto es TEMPORAL, el jugador murio por causas de admin");
-        }
-    }
-
     public void ReciveDamage(float damage) 
     {
         Debug.Log("ESTO ES TEMPORAL, se recivio de daño: " + damage);
