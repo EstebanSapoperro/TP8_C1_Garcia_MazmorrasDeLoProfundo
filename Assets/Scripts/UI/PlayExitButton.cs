@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PlayExitButton : MonoBehaviour
 {
+    // Suggestion: Tres bools excluyentes para el tipo de botón. Un enum ButtonType es más claro y evita combinaciones inválidas.
     [SerializeField] private bool playButton = false;
     [SerializeField] private bool mainMenuButton = false;
     [SerializeField] private bool exitButton = false;
@@ -27,6 +28,7 @@ public class PlayExitButton : MonoBehaviour
         {
             //DataGameManager.isFinished = false;
             Time.timeScale = 0.0f;
+            // Warning: Nombres de escena como strings mágicos ("MainMenu", "Gameplay", también en RetryButton). Centralizalos en constantes.
             SceneManager.LoadScene("MainMenu");
         }
 

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class EnterBackButton : MonoBehaviour
 {
+    // Suggestion: Campo privado en PascalCase (IsResumeButton). El resto del proyecto usa camelCase.
     [SerializeField] private bool IsResumeButton = false;
     [SerializeField] private CanvasGroup enterPanel;
     [SerializeField] private CanvasGroup exitPanel;
@@ -20,11 +21,13 @@ public class EnterBackButton : MonoBehaviour
         exitbutton.onClick.RemoveAllListeners();
     }
 
+    // Suggestion: Método en camelCase (onClick). En C# los métodos van en PascalCase: OnClick. Mismo caso en PlayExitButton y RetryButton.
     private void onClick()
     {
         buttonSFX.Play();
         if (IsResumeButton == true)
         {
+            // Warning: Comparación de float con ==. Usá Mathf.Approximately o un bool isPaused propio.
             if (Time.timeScale == 0)
             {
                 Debug.Log("el tiempo es 1");

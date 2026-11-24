@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float bufferTimer = 0;
 
     private bool isPressingUp = false;
+    // Suggestion: isTappetUp e idleAnimationPlayed se asignan pero nunca se leen. Borralos.
     private bool isTappetUp = false;
     private bool inFloor = false;
     private bool goingRight = false;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private float originalGravityScale;
     private float jumpGravityScale;
     private float rayCastLong;
+    // Warning: [SerializeField] public expone el Rigidbody2D a cualquier clase. Usá [SerializeField] private.
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] Transform body;
     [SerializeField] PlayerSo data;
@@ -46,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Bug: Con GetKey el buffer de salto se recarga todos los frames mientras W está apretada, así que mantener W hace saltar
+        // de nuevo apenas toca el piso. Para el buffer usá Input.GetKeyDown(KeyCode.W) y dejá GetKey solo para isPressingUp.
         if (Input.GetKey(KeyCode.W))
         {
             isPressingUp = true;
@@ -63,9 +67,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             goingRight = true;
+            // Warning: Asignar Vector3.zero a transform.right no define una dirección (funciona de casualidad).
+            // Para girar usá body.localScale o Quaternion.Euler(0, 0, 0) / Quaternion.Euler(0, 180, 0) como en TrollMovement.
             body.transform.right = new Vector3(0, 0, 0);
             if (walkAnimationPlayed == false && isPressingUp == false && isAttacking == false)
             {
+                // Suggestion: Strings "IsWalk" y "Walk" repetidos y bloque duplicado con el de la tecla A. Usá Animator.StringToHash y extraé un método.
                 animato.SetBool("IsWalk", true);
                 animato.Play("Walk");
                 walkAnimationPlayed = true;
@@ -105,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+        // Warning: El raycast sale de transform.localPosition, que es relativa al padre. Usá transform.position.
         RaycastHit2D hit = Physics2D.Raycast(transform.localPosition, Vector2.down, rayCastLong, floorLayer);
         inFloor = hit.collider != null;
 
@@ -133,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (bufferTimer > 0 && coyoteTimer > 0)
         {
+            // Error: El salto tiene sonido pero no animación. El Animator del jugador (Sprite.controller) solo tiene Idle, Walk y Attack (consigna J6).
             jumpSFX.Play();
             rb.linearVelocityY = jumpForce;
             bufferTimer = 0;

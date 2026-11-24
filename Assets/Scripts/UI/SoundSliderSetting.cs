@@ -31,6 +31,8 @@ public class SoundSliderSetting : MonoBehaviour
     }
     private void Start()
     {
+        // Bug: PlayerPrefs.GetFloat sin valor por defecto devuelve 0 en la primera ejecución: los sliders quedan en 0
+        // y Log10(0) termina en -80 dB, el juego arranca muteado. Usá PlayerPrefs.GetFloat("GeneralAudio", 1f).
         generalAudioSlider.value = PlayerPrefs.GetFloat("GeneralAudio");
         uIAudioSlider.value = PlayerPrefs.GetFloat("UIAudio");
         sFXAudioSlider.value = PlayerPrefs.GetFloat("SFXAudio");
@@ -38,6 +40,8 @@ public class SoundSliderSetting : MonoBehaviour
     }
     private void OnGeneralChangeValue(float value)
     {
+        // Warning: Claves de PlayerPrefs y parámetros del mixer como strings mágicos, y conviven 'GenerealAudio' (parámetro del mixer, con error de tipeo) y 'GeneralAudio' (clave de PlayerPrefs).
+        // Definí constantes para cada clave.
         ChangeSoundValue("GenerealAudio", value);
         PlayerPrefs.SetFloat("GeneralAudio", value);
     }
@@ -61,6 +65,7 @@ public class SoundSliderSetting : MonoBehaviour
 
     private void ChangeSoundValue(string sound, float value) 
     {
+        // Suggestion: Factor 35 mágico. La fórmula estándar es Log10(value) * 20.
         float finalSound = Mathf.Clamp(Mathf.Log10(value) * 35, -80, 0);
         mixerSelected.SetFloat(sound, finalSound);
 

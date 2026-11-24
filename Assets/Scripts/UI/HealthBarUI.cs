@@ -1,3 +1,4 @@
+// Suggestion: using TMPro sin usar.
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 public class HealthBarUI : MonoBehaviour
 {
     [SerializeField] private Image fillHealthBarImage;
+    // Suggestion: maxHealth y Start() vacío son código muerto.
     private float maxHealth = 100;
     private void Awake()
     {

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class RetryButton : MonoBehaviour
 {
     [SerializeField] private Button buttonSelected;
+    // Suggestion: Comentario de plantilla que no corresponde a este script. Borralo.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
